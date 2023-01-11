@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.*;
@@ -29,7 +30,10 @@ public class HelloWorld {
 
         textArea.clear();
         textArea.sendKeys("Hello, World!");
-        assertThat(textArea.getText()).isEqualTo("Hello, World!");
+
+        // Send TAB key on body to ensure element is unfocused
+        driver.findElement(By.tagName("body")).sendKeys(Keys.TAB);
+        assertThat(textArea.getAttribute("value")).isEqualTo("Hello, World!");
     }
 
     @AfterAll
