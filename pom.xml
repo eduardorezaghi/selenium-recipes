@@ -19,6 +19,14 @@
   </properties>
 
   <dependencies>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.1</version>
+        <type>pom</type>
+      </dependency>
+
     <!-- Spring Boot dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -120,10 +128,22 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+
         <plugin>
 				  <groupId>org.springframework.boot</groupId>
 				  <artifactId>spring-boot-maven-plugin</artifactId>
+          <configuration>
+            <mainClass>eduardo.learning.App</mainClass>
+          </configuration>
+          <executions>
+            <execution>
+                <goals>
+                    <goal>repackage</goal>
+                </goals>
+            </execution>
+          </executions>
         </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
