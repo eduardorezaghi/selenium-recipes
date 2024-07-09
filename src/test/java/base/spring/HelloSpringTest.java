@@ -1,6 +1,8 @@
 package base.spring;
 
-import org.junit.jupiter.api.AfterEach;
+import static org.assertj.core.api.Assertions.assertThat;
+import java.time.Duration;
+import java.util.NoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,44 +14,27 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
-import java.util.NoSuchElementException;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-import static org.assertj.core.api.Assertions.assertThat;
-
 /*
-* Spring Boot test application must be ran before tests:
-*    $ ./mvnw spring-boot:run
-*/
-public class HelloSpringTest {
-
-    WebDriver driver;
-
-    @BeforeEach
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
+ * Spring Boot test application must be ran before tests: $ ./mvnw spring-boot:run
+ */
+public class HelloSpringTest extends base.SeleniumBase {
+    @BeforeEach @Override
+    protected void setup() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
     }
 
-    @AfterEach
-    public void teardown() {
-        driver.quit();
-    }
-    
+
     @Test
     public void testHelloWorld() {
         driver.get("http://localhost:8080/");
-        
-        Wait<WebDriver> wait = new FluentWait<>(driver)
-        .withTimeout(Duration.ofSeconds(10))
-        .pollingEvery(Duration.ofSeconds(1))
-        .ignoring(NoSuchElementException.class);
-        
-        WebElement body = wait.until(ExpectedConditions
-            .presenceOfElementLocated(By.tagName("body")));
+
+        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+
+        WebElement body =
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
 
         assertThat(body.getText()).isEqualTo("Greetings from Spring Boot!");
     }
@@ -62,7 +47,7 @@ public class HelloSpringTest {
         url.append(name);
 
         driver.get(url.toString());
-        
+
         WebElement body = driver.findElement(By.tagName("body"));
 
         assertThat(body.getText()).isEqualTo("Hello, %s!", name);

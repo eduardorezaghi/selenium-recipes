@@ -1,28 +1,13 @@
 package base.actions;
 
-import org.junit.jupiter.api.BeforeEach;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
-import static java.lang.invoke.MethodHandles.lookup;
-import static org.assertj.core.api.Assertions.assertThat;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class KeyActions1 {
-    
-    WebDriver driver;
-    static final Logger log = getLogger(lookup().lookupClass());
-
-    @BeforeEach
-    public void setup() {
-        driver = WebDriverManager.chromedriver().create();
-    }
-
+public class KeyActions1 extends base.SeleniumBase {
     @Test
     public void testKey() {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
@@ -35,8 +20,8 @@ public class KeyActions1 {
 
         // Log to Selenium output console
         log.debug("The initial value of rangeSlider is {}", initialValue);
-        
-        for (int i = 0; i < 6; i++) 
+
+        for (int i = 0; i < 6; i++)
             // Click ARROW_RIGHT keyboard key three times
             rangeSlider.sendKeys(Keys.ARROW_LEFT);
 

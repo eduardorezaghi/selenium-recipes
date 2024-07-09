@@ -1,26 +1,9 @@
 package base.navigation;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class NavigationTest {
-
-    WebDriver driver;
-
-    @BeforeEach
-    void setup() {
-        driver = WebDriverManager.chromedriver().create();
-    }
-
-    @AfterEach
-    void teardown() {
-        driver.quit();
-    }
+public class NavigationTest extends base.SeleniumBase {
     @Test
     public void navigationTest() {
         String baseUrl = "https://testpages.herokuapp.com/styled/";
