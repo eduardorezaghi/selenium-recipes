@@ -4,26 +4,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class XpathMouseClick {
-    
-    WebDriver driver;
-
-    @BeforeEach
-    void setup() {
-        driver = WebDriverManager.chromedriver().create();
-    }
-
-    @AfterEach
-    void teardown() throws InterruptedException {
+public class XpathMouseClick extends base.SeleniumBase {
+    @AfterAll
+    public static void teardown() throws InterruptedException {
         // Pause for manual browser inspection
+        log.info("Waiting before closing the browser");
         Thread.sleep(Duration.ofSeconds(3).toMillis());
 
         driver.quit();

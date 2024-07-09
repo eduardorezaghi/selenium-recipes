@@ -1,22 +1,12 @@
 package base.locators;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BasicLocators {
 
-    // Empty WebDriver instance before initiating tests
-    WebDriver driver;
-
-    @BeforeEach
-    public void setup() {
-        driver = WebDriverManager.firefoxdriver().create();
-    }
+public class BasicLocators extends base.SeleniumBase {
 
     @Test
     public void testLocators() {

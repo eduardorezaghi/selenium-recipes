@@ -1,4 +1,15 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "terminal.integrated.allowChords": false
+    "terminal.integrated.allowChords": false,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
+    "java.format.settings.profile": "GoogleStyle",
+    "[java]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
 }
