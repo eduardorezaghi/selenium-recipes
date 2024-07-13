@@ -21,7 +21,7 @@ public class TestScreenshootExample extends base.SeleniumBase {
         File screenshot = ts.getScreenshotAs(OutputType.FILE);
         log.debug("Screenshot created in {}", screenshot);
 
-        Path destination = Paths.get("screenshot.png");
+        Path destination = Paths.get("src/test/java/resources/output/screenshot.png");
         Files.move(screenshot.toPath(), destination, REPLACE_EXISTING);
         log.debug("Screenshot moved to {}", destination);
 

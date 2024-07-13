@@ -30,7 +30,7 @@ public class TestAddChildElement extends base.SeleniumBase {
         assertThat(div.getAttribute("innerHTML")).contains("New title element");
 
         File screenshot = ts.getScreenshotAs(OutputType.FILE);
-        Files.move(screenshot.toPath(), Paths.get("screenshot_js.png"), REPLACE_EXISTING);
+        Files.move(screenshot.toPath(), Paths.get("src/test/java/resources/output/screenshot_js.png"), REPLACE_EXISTING);
 
     }
 }
