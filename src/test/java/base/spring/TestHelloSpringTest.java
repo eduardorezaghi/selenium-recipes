@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ import org.openqa.selenium.support.ui.Wait;
 /*
  * Spring Boot test application must be ran before tests: $ ./mvnw spring-boot:run
  */
+@Disabled
 public class TestHelloSpringTest extends base.SeleniumBase {
     @BeforeEach @Override
     protected void setup() {
