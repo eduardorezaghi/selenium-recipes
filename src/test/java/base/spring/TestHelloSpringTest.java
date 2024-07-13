@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.Wait;
 /*
  * Spring Boot test application must be ran before tests: $ ./mvnw spring-boot:run
  */
-public class HelloSpringTest extends base.SeleniumBase {
+public class TestHelloSpringTest extends base.SeleniumBase {
     @BeforeEach @Override
     protected void setup() {
         ChromeOptions chromeOptions = new ChromeOptions();

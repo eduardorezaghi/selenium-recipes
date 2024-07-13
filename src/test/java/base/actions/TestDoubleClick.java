@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 
-public class DoubleClick extends base.SeleniumBase {
+public class TestDoubleClick extends base.SeleniumBase {
 
 
 

@@ -3,7 +3,7 @@ package base.navigation;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
-public class NavigationTest extends base.SeleniumBase {
+public class TestNavigationTest extends base.SeleniumBase {
     @Test
     public void navigationTest() {
         String baseUrl = "https://testpages.herokuapp.com/styled/";

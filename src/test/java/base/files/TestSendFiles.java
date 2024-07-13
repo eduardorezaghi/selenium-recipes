@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SendFiles extends base.SeleniumBase {
+public class TestSendFiles extends base.SeleniumBase {
     @Test
     public void testUpload() throws IOException, InterruptedException {
         String initialURL = "https://testpages.herokuapp.com/styled/basic-html-form-test.html";

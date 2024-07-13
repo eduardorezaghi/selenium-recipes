@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 
-public class XpathMouseClick extends base.SeleniumBase {
+public class TestXpathMouseClick extends base.SeleniumBase {
     @AfterAll
     public static void teardown() throws InterruptedException {
         // Pause for manual browser inspection

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class HelloWorld extends SeleniumBase {
+public class TestHelloWorld extends SeleniumBase {
     @Test
     void fillHelloWorldForm() {
         driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html");

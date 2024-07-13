@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-public class ScreenshotBase64 extends base.SeleniumBase {
+public class TestScreenshotBase64 extends base.SeleniumBase {
     @Test
     public void testScreenshot(String arg1, String... args) {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/");

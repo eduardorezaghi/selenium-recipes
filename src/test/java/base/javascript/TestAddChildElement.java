@@ -15,7 +15,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 
 
-public class AddChildElement extends base.SeleniumBase {
+public class TestAddChildElement extends base.SeleniumBase {
     @Test
     public void testAddChildElement() throws IOException {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/long-page.html");

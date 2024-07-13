@@ -7,7 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 
-public class KeyActions1 extends base.SeleniumBase {
+public class TestKeyActions1 extends base.SeleniumBase {
     @Test
     public void testKey() {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");

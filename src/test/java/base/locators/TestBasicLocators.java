@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class BasicLocators extends base.SeleniumBase {
+public class TestBasicLocators extends base.SeleniumBase {
 
     @Test
     public void testLocators() {

@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Waits extends SeleniumBase {
+public class TestWaits extends SeleniumBase {
 
     @Test
     public void testImplicityWait() {

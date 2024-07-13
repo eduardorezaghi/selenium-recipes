@@ -12,7 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 
-public class ScreenshootExample extends base.SeleniumBase {
+public class TestScreenshootExample extends base.SeleniumBase {
     @Test
     public void testScreenshot() throws IOException {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
