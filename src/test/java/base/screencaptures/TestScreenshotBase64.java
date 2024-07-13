@@ -1,4 +1,4 @@
-package base.screenshoot;
+package base.screencaptures;
 
 
 import static org.assertj.core.api.Assertions.assertThat;

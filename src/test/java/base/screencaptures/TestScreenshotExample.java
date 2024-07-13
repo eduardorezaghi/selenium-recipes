@@ -1,4 +1,4 @@
-package base.screenshoot;
+package base.screencaptures;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,7 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 
-public class TestScreenshootExample extends base.SeleniumBase {
+public class TestScreenshotExample extends base.SeleniumBase {
     @Test
     public void testScreenshot() throws IOException {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
