@@ -2,9 +2,9 @@ package base;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.time.Duration;
-import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,15 +42,20 @@ public class TestWaits extends SeleniumBase {
 
     @Test
     public void testFluentWait() {
-        driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+        driver.get("https://bonigarcia.dev/selenium-webdriver-j ava/loading-images.html");
 
         // Use FluentWait object instance (base class of WebDriverWait class)
         // to customize wait behavior, such as:
         // - Timeout of wait
         // - Polling time specification
         // - Error message when element is not found
-        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(10)) // Waits
+                                                                                            // for
+                                                                                            // 10
+                                                                                            // seconds
+                .pollingEvery(Duration.ofSeconds(1)) // Re-query the DOM every 1 second
+                .ignoring(NoSuchElementException.class); // Ignore this
+                                                         // exception
 
         WebElement landscape =
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.id("landscape")));
