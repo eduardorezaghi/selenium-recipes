@@ -3,7 +3,7 @@ package base;
 import static java.lang.invoke.MethodHandles.lookup;
 import static org.slf4j.LoggerFactory.getLogger;
 import java.io.File;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,9 +38,8 @@ public class SeleniumBase {
         driver = new ChromeDriver(service, options);
     }
 
-    @AfterAll
-    protected static void teardown() throws InterruptedException {
-        // Close the browser
+    @AfterEach
+    protected void teardownEach() {
         driver.quit();
     }
 }
