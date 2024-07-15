@@ -2,15 +2,15 @@ package base.spring;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.time.Duration;
-import java.util.NoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -20,7 +20,8 @@ import org.openqa.selenium.support.ui.Wait;
  */
 @Disabled
 public class TestHelloSpringTest extends base.SeleniumBase {
-    @BeforeEach @Override
+    @BeforeEach
+    @Override
     protected void setup() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
@@ -32,8 +33,10 @@ public class TestHelloSpringTest extends base.SeleniumBase {
     public void testHelloWorld() {
         driver.get("http://localhost:8080/");
 
-        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+        Wait<RemoteWebDriver> wait = new FluentWait<>(driver)
+            .withTimeout(Duration.ofSeconds(10))
+            .pollingEvery(Duration.ofSeconds(1))
+            .ignoring(NoSuchElementException.class);
 
         WebElement body =
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));

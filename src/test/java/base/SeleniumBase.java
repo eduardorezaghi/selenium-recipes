@@ -5,11 +5,11 @@ import static org.slf4j.LoggerFactory.getLogger;
 import java.io.File;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumDriverLogLevel;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 
 public class SeleniumBase {
@@ -19,7 +19,7 @@ public class SeleniumBase {
     protected static final Logger log = getLogger(lookup().lookupClass());
 
     // Allows the browser to be accessed in subclasses
-    protected static WebDriver driver;
+    protected static RemoteWebDriver driver;
 
     @BeforeEach
     protected void setup() {
