@@ -31,4 +31,15 @@ public class TestComplexLocators extends base.SeleniumBase {
         assertThat(customAttribute).isEqualTo("attrib in source at load");
     }
 
+    @Test
+    public void testFindByXpath() {
+        driver.get("https://testpages.eviltester.com/styled/find-by-playground-test.html");
+
+        WebElement href = driver.findElement(By.xpath("//a[@id='a27']"));
+
+        String id = href.getAttribute("id");
+
+        assertThat(id).isEqualTo("a26");
+    }
+
 }
