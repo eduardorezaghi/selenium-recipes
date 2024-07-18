@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestSendFiles extends base.SeleniumBase {
+    private static final String initialURL = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
+
     @Test
     public void testUpload() throws IOException, InterruptedException {
         String initialURL = "https://testpages.herokuapp.com/styled/basic-html-form-test.html";
@@ -30,5 +32,25 @@ public class TestSendFiles extends base.SeleniumBase {
                 .until(driver -> driver.findElement(By.className("explanation")));
 
         assertThat(textBox.getText()).contains("You submitted a form");
+    }
+
+    @Test
+    public void testUpload2() throws IOException {
+        driver.get(initialURL);
+
+        WebElement inputFile = driver.findElement(By.name("myFile"));
+
+        // Arrange
+        // Use java.nio.file.Path to create a temporary file
+        Path tempFile = Files.createTempFile("tempFiles", ".tmp");
+        String fileName = tempFile.toAbsolutePath().toString();
+        log.debug("File to upload: {}", fileName);
+
+        // Act
+        inputFile.sendKeys(fileName);
+        driver.findElement(By.tagName("form")).submit();
+
+        // Assert
+        assertThat(driver.getPageSource()).contains("You submitted a form");
     }
 }
